@@ -8,19 +8,24 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var tabSelection: Int = 1
+    @State private var blogStepToggle: Bool = true
+    @State private var videoStepToggle: Bool = false
+    @State private var imageStepToggle: Bool = false
+    @Namespace var namespace
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            Header(blogStepToggle: $blogStepToggle, videoStepToggle: $videoStepToggle, imageStepToggle: $imageStepToggle, namespace: namespace.self)
+                .padding(.horizontal, 10)
         }
-        .padding()
+        
     }
+    
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-}
+//struct ContentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ContentView()
+//    }
+//}

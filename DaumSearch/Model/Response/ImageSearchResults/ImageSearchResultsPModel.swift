@@ -10,7 +10,7 @@ import Foundation
 // MARK: - ImageSearchResults
 struct ImageSearchResultsPModel: Codable {
     let meta: Meta
-    let imageDocument: [ImageDocumentPModel]
+    var imageDocument: [ImageDocumentPModel]
     
     static func convertTo(imageSearchResults: ImageSearchResults) -> ImageSearchResultsPModel {
         return ImageSearchResultsPModel(

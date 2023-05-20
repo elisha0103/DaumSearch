@@ -9,9 +9,9 @@ import Foundation
 
 struct RequestModel: Codable {
     var query: String
-    var sort: String
-    var page: Int
-    var size: Int
+    var sort: String?
+    var page: Int?
+    var size: Int?
     
     enum CodingKeys: String, CodingKey {
         case query = "query"

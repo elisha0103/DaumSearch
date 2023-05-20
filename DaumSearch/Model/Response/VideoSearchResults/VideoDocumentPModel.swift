@@ -22,7 +22,7 @@ struct VideoDocumentPModel: Codable {
             playTime: videoDocument.playTime,
             thumbnail: videoDocument.thumbnail,
             url: videoDocument.url,
-            atetime: videoDocument.datetime,
+            datetime: videoDocument.datetime,
             author: videoDocument.author
         )
     }

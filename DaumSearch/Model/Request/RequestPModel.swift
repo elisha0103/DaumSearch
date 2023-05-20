@@ -16,4 +16,8 @@ struct RequestPModel {
     static func convertTo(requestModel: RequestModel) -> RequestPModel {
         return RequestPModel(query: requestModel.query, sort: requestModel.sort, page: requestModel.page, size: requestModel.size)
     }
+    
+    static func makeUrl() -> URL {
+        
+    }
 }
