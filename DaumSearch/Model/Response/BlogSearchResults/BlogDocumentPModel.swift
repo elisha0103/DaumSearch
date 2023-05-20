@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - Document
-struct BlogDocumentPModel: Codable {
+struct BlogDocumentPModel: Codable, Hashable {
     let title, contents: String
     let url: String
     let blogname: String

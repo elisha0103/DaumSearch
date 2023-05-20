@@ -26,7 +26,7 @@ final class WebService {
         
         var urlQueryItems: [URLQueryItem] = []
         
-            var queryParameters = try requestModel.toDictionary()
+            let queryParameters = try requestModel.toDictionary()
             queryParameters.forEach { key, value in
                 urlQueryItems.append(URLQueryItem(name: key, value: "\(value)"))
             }
@@ -82,7 +82,7 @@ final class WebService {
     }
     
     static func fetchVideoSearchResult(requestModel: RequestModel) async throws -> VideoSearchResultsPModel {
-        let url = try makeUrl(requestModel: requestModel, path: "blog")
+        let url = try makeUrl(requestModel: requestModel, path: "vclip")
         print("요청 url: \(url.description)")
         
         var urlRequest = URLRequest(url: url)

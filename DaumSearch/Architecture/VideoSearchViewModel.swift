@@ -1,5 +1,5 @@
 //
-//  SearchDataStore.swift
+//  VideoSearchViewModel.swift
 //  DaumSearch
 //
 //  Created by 진태영 on 2023/05/20.
@@ -7,8 +7,8 @@
 
 import Foundation
 
-final class BlogSearchViewModel: ObservableObject {
-    @Published var blogSearchResults: BlogSearchResultsPModel
+final class VideoSearchViewModel: ObservableObject {
+    @Published var videoSearchResults: VideoSearchResultsPModel
     @Published var loadingResultDataState: LoadingState = .done {
         didSet {
             print("state changed to: \(loadingResultDataState)")
@@ -22,17 +22,17 @@ final class BlogSearchViewModel: ObservableObject {
         case error(String)
     }
     
-    init(blogSearchResults: BlogSearchResultsPModel, loadingResultDataState: LoadingState) {
-        self.blogSearchResults = blogSearchResults
+    init(videoSearchResults: VideoSearchResultsPModel, loadingResultDataState: LoadingState) {
+        self.videoSearchResults = videoSearchResults
         self.loadingResultDataState = loadingResultDataState
     }
     
     func resetViewModelData() {
         self.loadingResultDataState = .done
-        self.blogSearchResults.blogDocument = []
+        self.videoSearchResults.videoDocument = []
     }
     
-    func fetchBlogService(requestModel: RequestModel) async {
+    func fetchVideoService(requestModel: RequestModel) async {
 //        guard loadingResultDataState == LoadingState.done else { return }
         
         do {
@@ -41,17 +41,17 @@ final class BlogSearchViewModel: ObservableObject {
                 self.loadingResultDataState = .isLoading
             }
             
-            let result = try await WebService.fetchBlogSearchResult(requestModel: requestModel)
+            let result = try await WebService.fetchVideoSearchResult(requestModel: requestModel)
             print("현재 페이지: \(String(describing: requestModel.page))")
             print("finish fetch")
             
             DispatchQueue.main.async { [weak self] in
-                self?.blogSearchResults.meta = result.meta
-                self?.blogSearchResults.blogDocument.append(contentsOf: result.blogDocument)
-                self?.loadingResultDataState = (self?.blogSearchResults.meta.isEnd ?? false ? .loadedAll : .done)
+                self?.videoSearchResults.meta = result.meta
+                self?.videoSearchResults.videoDocument.append(contentsOf: result.videoDocument)
+                self?.loadingResultDataState = (self?.videoSearchResults.meta.isEnd ?? false ? .loadedAll : .done)
                 
                 if self?.loadingResultDataState == .loadedAll {
-                    print("데이터의 끝입니다. Results: \(self?.blogSearchResults.blogDocument.count ?? -1)")
+                    print("데이터의 끝입니다. Results: \(self?.videoSearchResults.videoDocument.count ?? -1)")
                 }
             }
         } catch let error as NSError {

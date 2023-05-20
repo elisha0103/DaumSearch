@@ -9,7 +9,7 @@ import Foundation
 
 // MARK: - VideoSearchResults
 struct VideoSearchResultsPModel: Codable {
-    let meta: MetaPModel
+    var meta: MetaPModel
     var videoDocument: [VideoDocumentPModel]
     
     static func convertTo(videoSearchResults: VideoSearchResults) -> VideoSearchResultsPModel {

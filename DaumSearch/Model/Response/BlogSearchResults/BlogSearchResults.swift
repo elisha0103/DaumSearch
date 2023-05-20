@@ -11,4 +11,10 @@ import Foundation
 struct BlogSearchResults: Codable {
     let meta: Meta
     let blogDocument: [BlogDocument]
+    
+    enum CodingKeys: String, CodingKey {
+        case blogDocument = "documents"
+        case meta
+
+    }
 }

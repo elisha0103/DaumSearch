@@ -9,12 +9,12 @@ import Foundation
 
 // MARK: - BlogSearchResults
 struct BlogSearchResultsPModel: Codable {
-    let meta: Meta
+    var meta: MetaPModel
     var blogDocument: [BlogDocumentPModel]
     
     static func convertTo(blogSearchResults: BlogSearchResults) -> BlogSearchResultsPModel {
         return BlogSearchResultsPModel(
-            meta: blogSearchResults.meta,
+            meta: MetaPModel.convertTo(meta: blogSearchResults.meta),
             blogDocument: blogSearchResults.blogDocument.map {
                 BlogDocumentPModel.convertTo(blogDocument: $0)
             }

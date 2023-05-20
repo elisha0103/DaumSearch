@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - Document
-struct ImageDocumentPModel: Codable {
+struct ImageDocumentPModel: Codable, Hashable {
     let collection: String
     let thumbnailURL: String
     let imageURL: String

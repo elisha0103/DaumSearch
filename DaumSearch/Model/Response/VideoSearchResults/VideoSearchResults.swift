@@ -11,4 +11,9 @@ import Foundation
 struct VideoSearchResults: Codable {
     let meta: Meta
     let videoDocument: [VideoDocument]
+    
+    enum CodingKeys: String, CodingKey {
+        case videoDocument = "documents"
+        case meta
+    }
 }

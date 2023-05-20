@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - Document
-struct VideoDocumentPModel: Codable {
+struct VideoDocumentPModel: Codable, Hashable {
     let title: String
     let playTime: Int
     let thumbnail: String

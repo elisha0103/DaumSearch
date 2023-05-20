@@ -11,4 +11,9 @@ import Foundation
 struct ImageSearchResults: Codable {
     let meta: Meta
     let imageDocument: [ImageDocument]
+    
+    enum CodingKeys: String, CodingKey {
+        case imageDocument = "documents"
+        case meta
+    }
 }
